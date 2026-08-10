@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All Products — YWP Replica</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+<div class="replica-banner"><strong>REPLICA</strong> — Product listing page.</div>
+<div class="top-strip"><div class="container"><span class="open-now">● Open today: 9:45am – 5pm · Last entry 3pm</span><span><a href="#">Accessibility</a> · <a href="#">School Trips</a> · <a href="#">Venue Hire</a></span></div></div>
+<header class="site-header"><div class="container">
+<a href="index.html" class="logo"><img src="https://www.yorkshirewildlifepark.com/media/x43p1ox4/ywp-primary-logo.svg" alt="YWP" class="logo-img"></a>
+<nav class="main-nav" id="main-nav"><a href="explore.html">Explore the Park</a><a href="products.html" class="active">Products</a><a href="tickets.html">Prices</a><a href="short-breaks.html">Stay With Us</a><a href="#">What's On</a><a href="plan.html">Plan Your Visit</a></nav>
+<a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+<button class="mobile-toggle" aria-label="Menu" onclick="document.getElementById('main-nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<div class="plp-hero"><div class="container">
+<h1>Everything at Yorkshire Wildlife Park</h1>
+<p>Tickets, experiences, stays, events and more — find and book it all in one place.</p>
+<div class="search-wrap"><span class="search-icon">🔍</span><input type="text" id="searchInput" placeholder="Search products... e.g. 'polar bear', 'family', 'hotel'" oninput="filterProducts()"></div>
+</div></div>
+<div class="result-count"><strong id="countNum">0</strong> products available</div>
+
+<div class="container"><div class="plp-layout">
+
+<!-- FILTERS -->
+<aside class="filters" id="filtersPanel">
+<div class="filter-section"><h3>Category</h3>
+<label class="filter-option"><input type="checkbox" value="tickets" onchange="filterProducts()"> Tickets &amp; Passes <span class="fo-count" id="fc-tickets"></span></label>
+<label class="filter-option"><input type="checkbox" value="experiences" onchange="filterProducts()"> Animal Experiences <span class="fo-count" id="fc-experiences"></span></label>
+<label class="filter-option"><input type="checkbox" value="stays" onchange="filterProducts()"> Hotel &amp; Stays <span class="fo-count" id="fc-stays"></span></label>
+<label class="filter-option"><input type="checkbox" value="events" onchange="filterProducts()"> Events <span class="fo-count" id="fc-events"></span></label>
+<label class="filter-option"><input type="checkbox" value="memberships" onchange="filterProducts()"> Memberships <span class="fo-count" id="fc-memberships"></span></label>
+<label class="filter-option"><input type="checkbox" value="food" onchange="filterProducts()"> Food &amp; Drink <span class="fo-count" id="fc-food"></span></label>
+<label class="filter-option"><input type="checkbox" value="equipment" onchange="filterProducts()"> Equipment Hire <span class="fo-count" id="fc-equipment"></span></label>
+<label class="filter-option"><input type="checkbox" value="activities" onchange="filterProducts()"> Activities <span class="fo-count" id="fc-activities"></span></label>
+<label class="filter-option"><input type="checkbox" value="extras" onchange="filterProducts()"> Extras <span class="fo-count" id="fc-extras"></span></label>
+</div>
+<div class="filter-section"><h3>Suitable For</h3>
+<label class="filter-option"><input type="checkbox" value="families" onchange="filterProducts()"> Families</label>
+<label class="filter-option"><input type="checkbox" value="couples" onchange="filterProducts()"> Couples</label>
+<label class="filter-option"><input type="checkbox" value="groups" onchange="filterProducts()"> Groups</label>
+<label class="filter-option"><input type="checkbox" value="kids" onchange="filterProducts()"> Kids</label>
+<label class="filter-option"><input type="checkbox" value="accessible" onchange="filterProducts()"> Accessible</label>
+</div>
+<div class="filter-section"><h3>Price</h3>
+<label class="filter-option"><input type="checkbox" value="free" onchange="filterProducts()"> Free</label>
+<label class="filter-option"><input type="checkbox" value="under25" onchange="filterProducts()"> Under £25</label>
+<label class="filter-option"><input type="checkbox" value="25to100" onchange="filterProducts()"> £25 – £100</label>
+<label class="filter-option"><input type="checkbox" value="100to250" onchange="filterProducts()"> £100 – £250</label>
+<label class="filter-option"><input type="checkbox" value="over250" onchange="filterProducts()"> £250+</label>
+</div>
+<div class="filter-section"><h3>Includes Park Admission</h3>
+<label class="filter-option"><input type="checkbox" value="inc-admission" onchange="filterProducts()"> Yes — admission included</label>
+</div>
+<span class="filter-clear" onclick="clearFilters()">✕ Clear all filters</span>
+</aside>
+
+<!-- GRID -->
+<div>
+<button class="filter-toggle-mobile" onclick="document.getElementById('filtersPanel').classList.toggle('open')">☰ Show Filters</button>
+<div class="sort-bar"><div class="active-filters" id="activeTags"></div><select id="sortSelect" onchange="filterProducts()"><option value="featured">Sort: Featured</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="name-az">Name: A–Z</option></select></div>
+<div class="product-grid" id="productGrid"></div>
+</div>
+
+</div></div>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><img src="https://www.yorkshirewildlifepark.com/media/x43p1ox4/ywp-primary-logo.svg" alt="YWP" style="height:50px;margin-bottom:12px;filter:brightness(10);"><p style="margin-top:4px;font-size:0.9rem;">The UK's no.1 walk-through wildlife adventure.</p></div>
+<div><h4>Visit</h4><ul><li><a href="plan.html">Opening times</a></li><li><a href="tickets.html">Prices</a></li><li><a href="plan.html">Accessibility</a></li></ul></div>
+<div><h4>Explore</h4><ul><li><a href="explore.html">Animals</a></li><li><a href="experiences.html">Experiences</a></li><li><a href="products.html">All Products</a></li></ul></div>
+<div><h4>Support</h4><ul><li><a href="#">Help &amp; FAQs</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li></ul></div>
+</div><div class="copyright">© 2026 Yorkshire Wildlife Park — <em>Replica for UX testing</em></div></div></footer>
+<script src="js/products.js"></script>
+</body>
+</html>
