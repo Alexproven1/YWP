@@ -121,6 +121,21 @@
 .sb-ci .sci-v{font-weight:700;color:var(--ywp-green-800)}
 @media(max-width:900px){.bk-grid{grid-template-columns:1fr}.sb{position:static}.dt-layout{grid-template-columns:1fr}.card-step-grid{grid-template-columns:repeat(2,1fr)}.form-row{grid-template-columns:1fr}}
 @media(max-width:600px){.stepper{gap:2px}.st .st-label{font-size:.6rem}.card-step-grid{grid-template-columns:1fr}}
+/* Product menu (step 0) */
+.product-menu-wrap{padding:40px 0 80px}
+.product-menu-wrap h1{text-align:center;font-style:italic;margin-bottom:40px;color:var(--ywp-green-900)}
+.pm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.pm-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;text-decoration:none !important;display:flex;flex-direction:column}
+.pm-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.pm-card-img{height:180px;background-size:cover;background-position:center}
+.pm-card-body{padding:20px;text-align:center;flex:1;display:flex;flex-direction:column}
+.pm-card-body h3{font-family:var(--font-body);font-weight:700;font-size:1.05rem;color:var(--ywp-green-900);margin-bottom:8px}
+.pm-card-body p{font-size:.85rem;color:var(--ywp-muted);line-height:1.4;margin-bottom:16px;flex:1}
+.pm-card-body .btn{align-self:center}
+.checkout-hidden{display:none}
+.checkout-visible{display:block}
+@media(max-width:900px){.pm-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.pm-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -140,7 +155,7 @@
     <a href="#" class="btn btn-primary btn-sm book-now-trigger">Book Now <span class="caret">▾</span><span class="basket-badge">0</span></a>
     <div class="mega-menu">
       <div class="mega-menu-grid">
-        <a href="products.html" class="mm-item"><div class="mm-icon">🎟️</div><div><span class="mm-label">View Full Range</span><span class="mm-btn">Browse</span></div></a>
+        <a href="booking.html" class="mm-item"><div class="mm-icon">🎟️</div><div><span class="mm-label">View Full Range</span><span class="mm-btn">Browse</span></div></a>
         <a href="#" class="mm-item"><div class="mm-icon">🎵</div><div><span class="mm-label">Wild Live Concerts</span><span class="mm-btn">Book tickets</span></div></a>
         <a href="experiences.html" class="mm-item"><div class="mm-icon">🐾</div><div><span class="mm-label">Animal Experiences</span><span class="mm-btn">Book now</span></div></a>
         <a href="#" class="mm-item"><div class="mm-icon">👤</div><div><span class="mm-label">Members Admission</span><span class="mm-btn">Log in</span></div></a>
@@ -151,6 +166,59 @@
   </div>
   <button class="mobile-toggle" aria-label="Menu" onclick="document.getElementById('main-nav').classList.toggle('open')">☰</button>
 </div></header>
+
+<!-- PRODUCT MENU — "Step 0" before checkout begins -->
+<div class="product-menu-wrap" id="productMenu">
+  <div class="container">
+    <h1>Book Now!</h1>
+    <div class="pm-grid">
+
+      <a href="#" class="pm-card" onclick="startCheckout('admission');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/s0nf1svi/better-vista.jpg');"></div>
+        <div class="pm-card-body"><h3>Admission</h3><p>WILD adventures await…</p><span class="btn btn-primary btn-sm">Book now</span></div>
+      </a>
+
+      <a href="#" class="pm-card" onclick="startCheckout('experiences');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/tj0fab3y/ywp-images-3207.jpg');"></div>
+        <div class="pm-card-body"><h3>Animal Experiences</h3><p>Ever wanted to monkey around with a Baboon, roar with the Lions or feed a mighty Polar Bear?</p><span class="btn btn-primary btn-sm">Find out more</span></div>
+      </a>
+
+      <a href="#" class="pm-card" onclick="startCheckout('membership');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/ey4ndnwn/dsc04954-2.jpg');"></div>
+        <div class="pm-card-body"><h3>Memberships</h3><p>Dive into 12 months of WILD memories with our Gold and Standard Memberships</p><span class="btn btn-primary btn-sm">Find out more</span></div>
+      </a>
+
+      <a href="#" class="pm-card" onclick="startCheckout('events');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/ktldeo01/wild-live-2026-background.jpg');"></div>
+        <div class="pm-card-body"><h3>Events</h3><p>Dive into the WILDEST events in Yorkshire!</p><span class="btn btn-primary btn-sm">Find out more</span></div>
+      </a>
+
+      <a href="#" class="pm-card" onclick="startCheckout('ranger');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/0xfhej5p/ben-harrison-photography-www-benharrisonphotography-co-uk-53.jpg');"></div>
+        <div class="pm-card-body"><h3>Real Ranger Experience</h3><p>Grab your boots and get ready for a once-in-a-lifetime 3-day ranger experience</p><span class="btn btn-primary btn-sm">Book now</span></div>
+      </a>
+
+      <a href="#" class="pm-card" onclick="startCheckout('tea');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/mgxdiblp/hive-evening-02.jpg');"></div>
+        <div class="pm-card-body"><h3>Afternoon Tea</h3><p>Dine and unwind with our Afternoon Teas served at Wilds Café Bistro</p><span class="btn btn-primary btn-sm">Find out more</span></div>
+      </a>
+
+      <a href="#" class="pm-card" onclick="startCheckout('playbarn');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/px0isaks/oasis-adventure-play-zip-wire.jpg');"></div>
+        <div class="pm-card-body"><h3>Uproar! Play Barn Admission</h3><p>Stomp into Jurassic adventures at The Yorkshire Hive's pre-historic playbarn!</p><span class="btn btn-primary btn-sm">Book now</span></div>
+      </a>
+
+      <a href="#" class="pm-card" onclick="startCheckout('send');return false;">
+        <div class="pm-card-img" style="background-image:url('https://www.yorkshirewildlifepark.com/media/h4rfxec4/img_1329.jpg');"></div>
+        <div class="pm-card-body"><h3>Uproar! SEND Sessions</h3><p>A Jurassic adventure with the lights on full and the music/sound effects turned down low!</p><span class="btn btn-primary btn-sm">Book now</span></div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- Stepper + Checkout: hidden until product selected -->
+<div id="checkoutWrap" class="checkout-hidden">
 
 <!-- Stepper: 7 steps -->
 <div class="booking-progress"><div class="container">
@@ -285,6 +353,8 @@
 
 </div></div></div>
 
+</div><!-- /checkoutWrap -->
+
 <footer class="site-footer"><div class="container"><div class="copyright">© 2026 Yorkshire Wildlife Park — <em>Replica</em></div></div></footer>
 <script src="js/main.js"></script>
 <script>
@@ -392,6 +462,14 @@ function renderReview(){
   });
   h+='<div class="rv-total"><span>Grand Total</span><span>£'+grandTotal.toFixed(2)+'</span></div>';
   document.getElementById('reviewContent').innerHTML=h;
+}
+
+// Start checkout — hides product menu, shows stepper + flow
+function startCheckout(product) {
+  document.getElementById('productMenu').style.display = 'none';
+  document.getElementById('checkoutWrap').classList.remove('checkout-hidden');
+  document.getElementById('checkoutWrap').classList.add('checkout-visible');
+  go(1);
 }
 
 renderCal();updateBasket();
